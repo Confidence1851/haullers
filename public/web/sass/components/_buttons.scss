@@ -1,0 +1,11 @@
+.btn {
+    transition: transform .3s;
+
+    &:hover {
+        transform: translateY(-.3rem);
+    }
+
+    &:active {
+        transform: translateY(.3rem);
+    }
+}

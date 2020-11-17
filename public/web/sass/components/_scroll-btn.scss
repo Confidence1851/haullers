@@ -1,0 +1,19 @@
+.scroll-to-top {
+    position: fixed;
+    top: 80%;
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+    text-align: center;
+    line-height: 5rem;
+    float: right;
+    right: 2rem;
+    background-color: $color-primary;
+    color: $color-white;
+    z-index: 5;
+    transition: .2s;
+
+    @include respond(tab-land) {
+        top: 90%;
+    }
+}

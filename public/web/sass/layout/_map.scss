@@ -1,0 +1,10 @@
+.section__map {
+    width: 100%;
+    height: 50rem;    
+    padding: 0 !important;
+
+    & .mapouter {
+        width: 100% !important;
+        height: 100% !important;
+    }
+}

@@ -1,0 +1,47 @@
+@keyframes floating {
+    0% {
+        transform: translateY(-.5rem);
+    }
+
+    50% {
+        transform: translateY(.5rem);
+    }
+
+    100% {
+        transform: translateY(-.5rem);
+    }
+}
+
+
+
+@keyframes loader {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes fadeEffect {
+    from {
+        transform: translateY(2rem);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

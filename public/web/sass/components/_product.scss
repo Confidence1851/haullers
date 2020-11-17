@@ -1,0 +1,208 @@
+.carousel__box {
+    width: 100%;
+    height: 45rem;
+    overflow: hidden;
+    border-radius: .5rem;
+
+    @include respond(tab-land) {
+        height: 30rem;
+    }
+
+    & .tab-container {
+        margin-bottom: 2rem !important;
+
+        ul {
+            @include respond(phone) {
+                width: 100% !important;
+            }
+        }
+    }
+
+    &--heading {
+        margin-bottom: 1rem;
+        padding-bottom: .5rem;
+        border-bottom: 2px solid $color-primary;
+
+        & h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            font-family: 'Poppins';
+
+            & span {
+                font-weight: 500;
+                font-size: 2rem;
+                color: $color-primary;
+                float: right;
+                right: 0;
+                margin-top: -2rem;    
+
+                @include respond(phone) {
+                    float: none;
+                }
+            }
+        }
+
+        & p {
+            font-size: 1.4rem;            
+            width: 100%;
+
+            @include respond(phone) {
+                font-size: 1.2rem;                
+            }
+
+            & i {
+                color: #f6df0c;
+            }
+        }
+    }
+
+    & .main-carousel2 {
+        height: 100% !important;
+    }
+
+    & .item {
+        width: 100% !important;
+        height: 100%;
+        background-position: center center;
+
+        @include respond(phone) {
+            background-position: 0 0;
+        }
+
+        &--1 {
+            background-image: url(../images/carousel-bg1.jpg);
+            background-size: cover;
+        }
+
+        &--2 {
+            background-image: url(../images/carousel-bg2.jpg);
+            background-size: cover;
+        }
+
+        &--3 {
+            background-image: url(../images/carousel-bg3.jpg);
+            background-size: cover;
+        }
+    }
+
+    &--description {
+        margin-top: 3rem;
+
+        & h1 {
+            font-weight: 700;
+            color: $color-secondary;
+        }
+
+        & p {
+            font-size: 1.4rem;
+            line-height: 2;
+            color: #8d8d8d;
+        }
+    }
+}
+
+.flickity-button {
+    background: transparent !important;
+}
+
+.flickity-button:hover {
+    background: transparent !important;
+    border: 2px solid $color-primary !important;
+    color: $color-primary !important;
+}
+
+
+.flickity-page-dots .dot {
+    height: 4px;
+    width: 40px;
+    margin: 0;
+    border-radius: 0;
+}
+
+.table {
+
+    @include respond(phone) {
+        margin-bottom: 2rem;
+    }
+
+    &--box {
+        margin-top: 3rem;
+    }
+
+    & i {
+        color: $color-primary;
+        margin-right: .5rem;
+    }
+
+    & td,
+    th {
+        padding: 1.2rem !important;
+        font-size: 1.4rem !important;
+        color: #444444;
+    }
+}
+
+.review__box {    
+    @include respond(phone) {
+        margin-bottom: 6rem;
+    }
+
+    &--heading {
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+
+        & h3 {
+            color: $color-secondary;            
+
+            & b {
+                color: $color-primary;
+            }
+        }
+    }
+}
+
+#tab-4 {
+    display: block;
+}
+
+textarea {
+    width: 100%;
+    padding: 2rem;
+    resize: none !important;
+    font-size: 1.2rem !important;
+    border: 2px solid $color-primary;
+    outline: none;
+    border-radius: .5rem;
+    margin-bottom: 2rem !important;
+
+    @include respond(phone) {
+        margin-bottom: -1rem !important;
+    }
+
+    &:placeholder-shown {
+        border: 2px solid $color-secondary;
+    }
+}
+
+.payment__form {
+    border-radius: .5rem;
+    box-shadow: 0 .3rem 1rem #b8b8b8;
+    padding: 5rem;
+    padding-bottom: 6rem;
+
+    & .form__input--container {
+        margin-bottom: 5rem !important;
+
+        @include respond(phone) {
+            margin-bottom: 2rem !important;
+        }
+    }
+
+    @include respond(phone) {
+        padding: 3rem;        
+    }    
+
+    & h1 {
+        margin-bottom: 5rem;
+    }
+}

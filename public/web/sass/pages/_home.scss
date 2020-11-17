@@ -1,0 +1,11 @@
+.payment__form {
+
+    & .form__input {
+        background-color: transparent !important;
+        color: $color-secondary;
+    }
+
+    & label-1 {
+        color: $color-secondary !important;
+    }
+}

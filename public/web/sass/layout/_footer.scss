@@ -1,0 +1,104 @@
+.footer {
+    background-color: #464545;
+    padding-top: 5rem !important;
+    padding-bottom: 0 !important;
+
+    &__headings {
+        color: $color-white;
+        margin-bottom: 2rem;
+    }
+
+    &__logo {
+        font-size: 4rem;
+        color: $color-primary;
+        font-weight: 700;
+        margin-bottom: 1rem;        
+    }
+
+    & ul {
+
+        & li {
+            background-color: #4d4d4d;
+            padding: 1.5rem 3rem;
+            margin-bottom: 1rem;
+            color: $color-white;
+            list-style-type: none;
+            font-size: 1.4rem;
+
+            @include respond(tab-land) {
+                font-size: 1.2rem;
+            }
+
+            & i {
+                float: right;
+                right: 1rem;
+                margin-top: -.5rem;
+                padding: 1rem;
+                background-color: $color-primary;
+                color: $color-white;                              
+                border-radius: 50%;
+            }
+
+            & a {
+                color: $color-white;
+
+                &:hover {
+                    color: $color-primary;
+                }
+            }
+        }
+    }
+
+    &__paragraph {
+        width: 100%;
+        font-family: 'Open sans';
+        text-align: justify;
+        font-size: 1.3rem;
+        color: $color-paragraph;
+
+        &--active {
+
+            & span {
+                font-size: 1.3rem;
+                color: #d2d2d2;
+
+                & i {
+                    margin-right: .5rem;
+                }                
+            }            
+        }
+    }
+
+    & .car__item--btn {
+        font-size: 1.2rem !important;
+        position: relative;
+        top: 2rem;
+
+        @include respond(tab-port) {
+            display: none;          
+        }
+    }
+
+
+    &__content {
+        padding: 2rem;
+        
+        &:last-child {
+            @include respond(tab-land) {
+                padding-bottom: 6rem;
+            }
+
+            @include respond(tab-port) {
+                padding-bottom: 2rem;
+            }
+        }
+    }
+
+    &__copyright {
+        padding: 2.5rem 0;
+        font-size: 1.2rem;
+        color: $color-paragraph;
+        background-color: $color-black;
+        text-align: center;
+    }
+}
