@@ -15,8 +15,8 @@
                     <h1 class="footer__headings">Follow Us</h1>
                     <p class="footer__paragraph--active"><span> <a href="https://facebook.com/haullersonline" class="text-grey" target="_blank"> <i class="fal fa-mobile"></i>  facebook.com/haullersonline   </a>  </span></p>
                     <p class="footer__paragraph--active"><span> <a href="https://instagram.com/haullersonline" class="text-grey" target="_blank"> <i class="fal fa-mobile"></i>  instagram.com/haullersonline  </a>   </span></p>
-                    <p class="footer__paragraph--active"><span> <a href="https://twitter.com/haullersonline" class="text-grey" target="_blank"> <i class="fal fa-mobile"></i>  twitter.com/haullersonline   </a>  </span></p>
-                    <p class="footer__paragraph--active"><span> <a href="https://linkedIn.com/haullersonline" class="text-grey" target="_blank"> <i class="fal fa-mobile"></i>  linkedIn.com/haullersonline   </a>  </span></p>
+                    {{-- <p class="footer__paragraph--active"><span> <a href="https://twitter.com/haullersonline" class="text-grey" target="_blank"> <i class="fal fa-mobile"></i>  twitter.com/haullersonline   </a>  </span></p> --}}
+                    <p class="footer__paragraph--active"><span> <a href="https://linkedIn.com/showcase/haullers-online" class="text-grey" target="_blank"> <i class="fal fa-mobile"></i>  linkedIn.com/showcase/haullers-online   </a>  </span></p>
                 </div>
             </div>
             <div class="col-lg-4">
