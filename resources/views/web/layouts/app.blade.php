@@ -31,6 +31,12 @@
      <!-- End WOWSlider.com HEAD section -->
      <!-- Script for flickity -->
      <script src="{{ asset('public/web/flickity/flickity.pkgd.min.js') }}" charset="utf-8"></script>
+
+     <style>
+        .text-grey{
+            color: #d2d2d2;
+        }
+    </style>
      @yield('style')
      <title>@yield('title') - Haullers Online</title>
  </head>

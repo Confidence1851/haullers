@@ -1,10 +1,4 @@
-@section('style')
-    <style>
-        .text-grey{
-            color: #d2d2d2;
-        }
-    </style>
-@endsection
+
 <footer class="footer section-padding">
     <div class="container">
         <div class="row">
