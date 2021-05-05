@@ -30,23 +30,6 @@ class VehicleController extends Controller
      *   tags={"Vehicle"},
      *   summary="Get Vehicles by categories for homepage",
      *   operationId="vehicle_index",
-     *
-     *   @OA\Parameter(
-     *      name="category_id",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *           type="string"
-     *      )
-     *   ),
-     *   @OA\Parameter(
-     *      name="searchKeyword",
-     *      in="query",
-     *      required=false,
-     *      @OA\Schema(
-     *          type="string"
-     *      )
-     *   ),
      *   @OA\Response(
      *      response=200,
      *       description="Success",
@@ -97,6 +80,95 @@ class VehicleController extends Controller
             return problemResponse($message, ApiConstants::SERVER_ERR_CODE, $request, $e);
         }
     }
+
+
+
+    /**
+     * @OA\Get(
+     ** path="/vehicle/search",
+     *   tags={"Vehicle"},
+     *   summary="Search Vehicles by categories or search keyword",
+     *   operationId="vehicle_search",
+     *
+     *   @OA\Parameter(
+     *      name="category_id",
+     *      in="query",
+     *      required=false,
+     *      @OA\Schema(
+     *           type="string"
+     *      )
+     *   ),
+     *   @OA\Parameter(
+     *      name="search_keyword",
+     *      in="query",
+     *      required=false,
+     *      @OA\Schema(
+     *          type="string"
+     *      )
+     *   ),
+     *   @OA\Response(
+     *      response=200,
+     *       description="Success",
+     *      @OA\MediaType(
+     *           mediaType="application/json",
+     *      )
+     *   ),
+     *   @OA\Response(
+     *      response=401,
+     *       description="Unauthenticated"
+     *   ),
+     *   @OA\Response(
+     *      response=400,
+     *      description="Bad Request"
+     *   ),
+     *   @OA\Response(
+     *      response=404,
+     *      description="Not found"
+     *   ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     *)
+     **/
+    /**
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        try {
+            $validator = Validator::make($request->all(), [
+                'category_id' => 'bail|nullable|exists:vehicle_categories,id',
+                'search_keyword' => 'bail|nullable|string',
+            ]);
+
+            if ($validator->fails()) {
+                throw new ValidationException($validator);
+            }
+            $vehicleTrans = new VehicleTransformer(true);
+            $builder = $this->vehicleModel->where([
+                "vehicle_status" => "Active",
+            ]);
+
+            if (!empty($key = $request->category_id)) {
+                $builder = $builder->where([
+                    "vehicle_cat_id" => $key,
+                ]);
+            }
+
+            if (!empty($key = $request->search_keyword)) {
+                $builder = $builder->where([["vehicle_name", "like", "%$key%"]]);
+            }
+
+            $vehicles = $builder->paginate(10);
+            return validResponse("Vehicles search data retrieved", collect_pagination($vehicleTrans, $vehicles));
+        } catch (\Exception $e) {
+            $message = 'Something went wrong while processing your request.';
+            return problemResponse($message, ApiConstants::SERVER_ERR_CODE, $request, $e);
+        }
+    }
+
 
     /**
      * @OA\Get(
