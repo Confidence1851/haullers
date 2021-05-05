@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,20 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::namespace('Api')->group(function () {
+
+    // Route::get('file/{path}', 'ApiController@read_file')->name("api.file");
+
+    Route::namespace('Auth')->group(function () {
+        Route::post('register', 'RegisterController@register');
+        Route::post('login', 'LoginController@login');
+    });
+
+    Route::as('vehicle.')->prefix("vehicle")->group(function () {
+        Route::get('index', 'VehicleController@index');
+        Route::get('information', 'VehicleController@info');
+        Route::as('auth.')->prefix("auth")->middleware('auth:api')->group(function () {
+        });
+    });
 });

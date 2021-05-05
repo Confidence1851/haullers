@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Session;
 
 class RegisterController extends Controller

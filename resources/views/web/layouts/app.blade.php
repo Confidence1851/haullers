@@ -7,30 +7,30 @@
      <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <meta name="csrf-token" content="{{ csrf_token() }}">
      <!-- Exteranl stylesheets -->
-     <link rel="stylesheet" href="{{ asset('public/web/sass/main.css') }}">
-     <link rel="stylesheet" href="{{ asset('public/web/css/hover.css') }}">
-     <link rel="stylesheet" href="{{ asset('public/web/css/style.css') }}">
-     <link rel="stylesheet" href="{{ asset('public/web/fontawesome/css/all.css') }}">
+     <link rel="stylesheet" href="{{ $web_assets }}/sass/main.css">
+     <link rel="stylesheet" href="{{ $web_assets }}/css/hover.css">
+     <link rel="stylesheet" href="{{ $web_assets }}/css/style.css">
+     <link rel="stylesheet" href="{{ $web_assets }}/fontawesome/css/all.css">
      <!-- Font family -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
      <link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;display=swap" rel="stylesheet">
      <!-- link for boostrap -->
-     <link rel="stylesheet" href="{{ asset('public/web/sass/vendours/boostrap/css/bootstrap.css') }}">
+     <link rel="stylesheet" href="{{ $web_assets }}/sass/vendours/boostrap/css/bootstrap.css">
      
      <!-- Fav icon -->
       <link rel="shortcut icon" href="{{ asset('public/favicon.png') }}" />
 
 
      <!-- Link for Flickity -->
-     <link rel="stylesheet" href="{{ asset('public/web/flickity/flickity.css') }}" media="screen">
+     <link rel="stylesheet" href="{{ $web_assets }}/flickity/flickity.css" media="screen">
      {{--  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>  --}}
          <!-- Start WOWSlider.com HEAD section -->
      <!-- add to the <head> of your page -->
-     <link rel="stylesheet" type="text/css" href="{{ asset('public/web/engine4/style.css') }}" />
-     <script type="text/javascript" src="{{ asset('public/web/engine4/jquery.js') }}"></script>
+     <link rel="stylesheet" type="text/css" href="{{ $web_assets }}/engine4/style.css" />
+     <script type="text/javascript" src="{{ $web_assets }}/engine4/jquery.js"></script>
      <!-- End WOWSlider.com HEAD section -->
      <!-- Script for flickity -->
-     <script src="{{ asset('public/web/flickity/flickity.pkgd.min.js') }}" charset="utf-8"></script>
+     <script src="{{ $web_assets }}/flickity/flickity.pkgd.min.js" charset="utf-8"></script>
 
      <style>
         .text-grey{
@@ -61,7 +61,7 @@
 
 
      <!-- Script for boostrap -->
-     <script src="{{ asset('public/web/sass/vendours/boostrap/js/bootstrap.js') }}"></script>
+     <script src="{{ $web_assets }}/sass/vendours/boostrap/js/bootstrap.js"></script>
      <script>
             var acc = document.getElementsByClassName("accordion");
         var i;
@@ -80,8 +80,8 @@
      </script>
 
      <!-- External Script -->
-     <script src="{{ asset('public/web/script/main.js') }}"></script>
-     <script src="{{ asset('public/web/script/custom.js') }}"></script>
+     <script src="{{ $web_assets }}/script/main.js"></script>
+     <script src="{{ $web_assets }}/script/custom.js"></script>
      
 
  </body>
