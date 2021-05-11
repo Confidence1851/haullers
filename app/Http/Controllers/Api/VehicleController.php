@@ -236,4 +236,6 @@ class VehicleController extends Controller
             return problemResponse($message, ApiConstants::SERVER_ERR_CODE, $request, $e);
         }
     }
+
+    
 }

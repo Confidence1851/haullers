@@ -26,9 +26,17 @@ Route::namespace('Api')->group(function () {
 
     Route::as('vehicle.')->prefix("vehicle")->group(function () {
         Route::get('index', 'VehicleController@index');
-        Route::get('search', 'VehicleController@search');
+        Route::match(["get" , "post"],'search', 'VehicleController@search');
         Route::get('information', 'VehicleController@info');
         Route::as('auth.')->prefix("auth")->middleware('auth:api')->group(function () {
         });
+    });
+
+    Route::as('route-category.')->prefix("route-category")->group(function () {
+        Route::match(["get" , "post"],'list', 'RouteController@list');
+    });
+
+    Route::as('route.')->prefix("route")->group(function () {
+        Route::match(["get" , "post"],'calculate-price', 'RouteController@calculate_price');
     });
 });

@@ -130,6 +130,92 @@
                 }
             }
         },
+        "/route-category/list": {
+            "get": {
+                "tags": [
+                    "Route"
+                ],
+                "summary": "Display a list of route category routes",
+                "operationId": "routes_category_routes",
+                "parameters": [
+                    {
+                        "name": "category_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
+        "/route/calculate-price": {
+            "get": {
+                "tags": [
+                    "Route"
+                ],
+                "summary": "Calculate price for a route",
+                "operationId": "route_calc_price",
+                "parameters": [
+                    {
+                        "name": "route_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "vehicle_id",
+                        "in": "query",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not found"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            }
+        },
         "/vehicle/index": {
             "get": {
                 "tags": [
