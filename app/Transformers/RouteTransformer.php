@@ -26,7 +26,7 @@ class RouteTransformer
             'end' => $model->end,
             'start_to_end' => "$model->start to $model->end",
             'price' => $model->price,
-            "formatted_price" => format_money($model->price , 0),
+            "formatted_price" => format_money($model->price),
             'created_at' => $model->created_at,
             'updated_at' => $model->updated_at
         ];

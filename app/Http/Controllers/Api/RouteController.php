@@ -180,6 +180,7 @@ class RouteController extends Controller
 
             $data = [ 
                 "price" => $price,
+                "formatted_price" => format_money($price),
                 "weight" => $weight,
                 "unit" => $unit,
             ];

@@ -48,6 +48,7 @@ class VehicleTransformer
             'status' => $model->vehicle_status,
             'description' => $model->vehicle_description,
             'price' => $model->price,
+            "formatted_price" => format_money($model->price),
             'available' => $model->quantity_available,
             'use_count' => $model->use_count,
             'plate_number' => $model->plate_number,
