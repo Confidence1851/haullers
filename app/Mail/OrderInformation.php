@@ -19,9 +19,9 @@ class OrderInformation extends Mailable
      *
      * @return void
      */
-    public function __construct($me)
+    public function __construct(array $data)
     {
-        $this->data = $me;
+        $this->data = $data;
     }
 
     /**
@@ -31,6 +31,6 @@ class OrderInformation extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.order.order-form', compact('data'));
+        return $this->markdown('emails.order.order-form', ["data" => $this->data]);
     }
 }

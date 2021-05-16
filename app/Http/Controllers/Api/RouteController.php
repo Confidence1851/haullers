@@ -3,17 +3,16 @@
 namespace App\Http\Controllers\Api;
 
 use App\Helpers\ApiConstants;
-use App\Http\Controllers\Controller;
 use App\Route;
 use App\RouteCategory;
-use App\Transformers\RouteCategoryTransformer;
+use App\Traits\RoutePrice;
 use App\Transformers\RouteTransformer;
 use App\Vehicle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
-class RouteController extends Controller
+class RouteController extends ApiController
 {
 
 
@@ -161,29 +160,13 @@ class RouteController extends Controller
             $route = $this->routeModel->find($request->route_id);
             $vehicle = $this->vehicleModel->find($request->vehicle_id);
 
-            $vehicleRouteCheck = $this->routeModel->where(["id" => $route->id , "route_cat_id" => $vehicle->category_id ])->count();
+            $vehicleRouteCheck = $route->route_cat_id == $vehicle->route_cat_id;
 
-            // if($vehicleRouteCheck < 1){
-            //     return problemResponse("Invalid route for this vehicle", ApiConstants::BAD_REQ_ERR_CODE, $request);
-            // }
-
-            $price = $route->price;
-            $weight = $vehicle->capacity;
-            $unit = $vehicle->unit;
-
-            if(strtolower($unit) == strtolower("Tonne(s)")){
-                $price = $price * $weight ;                
-            }
-            if(strtolower($unit) == strtolower("Kg")){
-                $price = ($price / 1000) * $weight ;                
+            if(!$vehicleRouteCheck){
+                return problemResponse("Invalid route for this vehicle", ApiConstants::BAD_REQ_ERR_CODE, $request);
             }
 
-            $data = [ 
-                "price" => $price,
-                "formatted_price" => format_money($price),
-                "weight" => $weight,
-                "unit" => $unit,
-            ];
+            $data = RoutePrice::calc($vehicle , $route);
         
             return validResponse("Route price data retrieved", $data);
         } catch (ValidationException $e) {

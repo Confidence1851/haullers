@@ -169,7 +169,7 @@ class WebController extends Controller
     }
 
     public function fulldayBooking(Request $request){
-        return response()->json($request->all());
+        // return response()->json($request->all());
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|email',

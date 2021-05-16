@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Api;
 
 use App\Helpers\ApiConstants;
-use App\Http\Controllers\Controller;
 use App\Transformers\VehicleCategoryTransformer;
 use App\Transformers\VehicleTransformer;
 use App\Vehicle;
@@ -12,7 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
-class VehicleController extends Controller
+class VehicleController extends ApiController
 {
 
     private $vehicleCatModel;
@@ -161,7 +160,7 @@ class VehicleController extends Controller
                 $builder = $builder->where([["vehicle_name", "like", "%$key%"]]);
             }
 
-            $vehicles = $builder->paginate(10);
+            $vehicles = $builder->paginate(ApiConstants::PAGINATION_SIZE_API);
             return validResponse("Vehicles search data retrieved", collect_pagination($vehicleTrans, $vehicles));
         } catch (\Exception $e) {
             $message = 'Something went wrong while processing your request.';

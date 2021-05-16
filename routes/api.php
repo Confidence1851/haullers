@@ -39,4 +39,14 @@ Route::namespace('Api')->group(function () {
     Route::as('route.')->prefix("route")->group(function () {
         Route::match(["get" , "post"],'calculate-price', 'RouteController@calculate_price');
     });
+
+    Route::as('order.')->prefix("order")->middleware("auth:api")->group(function () {
+        Route::match(["get" , "post"],'history', 'OrderController@history');
+        Route::post('initiate', 'OrderController@initiate');
+        Route::post('complete', 'OrderController@complete');
+    });
+
+    Route::as('profile.')->prefix("profile")->middleware("auth:api")->group(function () {
+        Route::post('update', 'UserController@update');
+    });
 });
