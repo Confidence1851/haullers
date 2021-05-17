@@ -81,7 +81,7 @@ function putFileInPrivateStorage($file, $path)
 // Returns full public path
 function my_asset($path = null)
 {
-    return url("/") . env('RESOURCE_PATH') . '/' . $path;
+    return url("/") . env("RESOURCE_URL") . '/' . $path;
 }
 
 

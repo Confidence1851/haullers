@@ -29,13 +29,15 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*',function($view){
             // $user = optional(auth()->user());
             $view->with([
-                'logo_img' => url('/').env('RESOURCE_URL').'/logo.png',
+                'logo_img' => url('/').env("RESOURCE_URL").'/logo.png',
                 'web_assets' => my_asset("web"),
                 'dashboard_assets' => my_asset("dashboard"),
-                'admin_source' => url('/').env('RESOURCE_URL').'/admin',
-                // 'user_avatar' => empty($user->avatar) ? url('/').env('RESOURCE_URL').'/dashboard/img/avatar/2.jpg' : asset($user->avatar)
+                'admin_source' => url('/').env("RESOURCE_URL").'/admin',
+                // 'user_avatar' => empty($user->avatar) ? url('/').env("RESOURCE_URL").'/dashboard/img/avatar/2.jpg' : asset($user->avatar)
             ]);
         });
+
+        // dd(my_asset("web"));
 
     }
 }
