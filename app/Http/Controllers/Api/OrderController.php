@@ -353,3 +353,4 @@ class OrderController extends ApiController
         }
     }
 }
+// keytool -genkey -v -keystore C:/Users/USER_NAME/nutella.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias nutella
