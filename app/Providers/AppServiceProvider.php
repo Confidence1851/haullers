@@ -37,7 +37,5 @@ class AppServiceProvider extends ServiceProvider
             ]);
         });
 
-        dd(my_asset("web"));
-
     }
 }
