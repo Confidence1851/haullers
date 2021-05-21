@@ -162,6 +162,9 @@ class VehicleController extends ApiController
 
             $vehicles = $builder->paginate(ApiConstants::PAGINATION_SIZE_API);
             return validResponse("Vehicles search data retrieved", collect_pagination($vehicleTrans, $vehicles));
+        } catch (ValidationException $e) {
+            $message = "The given data was invalid.";
+            return inputErrorResponse($message, ApiConstants::VALIDATION_ERR_CODE, $request, $e);
         } catch (\Exception $e) {
             $message = 'Something went wrong while processing your request.';
             return problemResponse($message, ApiConstants::SERVER_ERR_CODE, $request, $e);

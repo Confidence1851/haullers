@@ -27,8 +27,8 @@ class OrderContactTransformer
             'email' => $model->email,
             'phone' => $model->phone,
             'phone2' => $model->phone2,
-            'created_at' => $model->created_at,
-            'updated_at' => $model->updated_at
+            'created_at' => carbon()->parse($model->created_at)->format("Y-m-d h:i:s A"),
+            'updated_at' => carbon()->parse($model->updated_at)->format("Y-m-d h:i:s A")
         ];
     }
 }

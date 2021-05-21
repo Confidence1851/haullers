@@ -28,18 +28,21 @@ class OrderTransformer
         $paymentTrans = new PaymentTransformer;
         $routeTrans = new RouteTransformer;
 
+        $route = $model->route;
+
         return [
             'id' => (int) $model->id,
             // 'user' => $userTrans->transform($model->user),
-            'order_contact' => $orderContactTrans->transform($model->contact),
+            'order_contact' => !empty($model->contact) ? $orderContactTrans->transform($model->contact) : null,
             'vehicle' => $vehicleTrans->transform($model->vehicle),
-            'route' => !empty($model->route) ? $routeTrans->transform($model->route) : null,
+            'route' => !empty($route) ? $routeTrans->transform($route) : null,
+            "routeType" => !empty($route) ? "$route->start to $route->end" : "Full-day booking",
             "payment" => !empty($model->payment) ? $paymentTrans->transform($model->payment) : null,
             "status" => $model->status,
             "price" => $model->price,
             "formatted_price" => format_money($model->price),
-            'created_at' => $model->created_at,
-            'updated_at' => $model->updated_at
+            'created_at' => carbon()->parse($model->created_at)->format("Y-m-d h:i:s A"),
+            'updated_at' => carbon()->parse($model->updated_at)->format("Y-m-d h:i:s A")
         ];
     }
 }

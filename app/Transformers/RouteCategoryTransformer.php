@@ -23,8 +23,8 @@ class RouteCategoryTransformer
         return [
             'id' => (int) $model->id,
             'name' => $model->name,
-            'created_at' => $model->created_at,
-            'updated_at' => $model->updated_at
+            'created_at' => carbon()->parse($model->created_at)->format("Y-m-d h:i:s A"),
+            'updated_at' => carbon()->parse($model->updated_at)->format("Y-m-d h:i:s A")
         ];
     }
 }

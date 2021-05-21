@@ -85,10 +85,30 @@ class OrderController extends ApiController
     public function history(Request $request)
     {
         try {
+            $validator = Validator::make($request->all(), [
+                'search_keyword' => 'bail|nullable|string',
+            ]);
+
+            if ($validator->fails()) {
+                throw new ValidationException($validator);
+            }
             $user = auth_api(true);
-            $orders = $this->orderModel->where(['user_id' => $user->id])->paginate(ApiConstants::PAGINATION_SIZE_API);
+            $builder = $this->orderModel->where(['user_id' => $user->id]);
+
+            if (!empty($key = $request->search_keyword)) {
+                $builder = $builder->whereHas("vehicle" , function($query) use ($key){
+                    $query->where("vehicle_name", "like", "%$key%");
+                })->orWhereHas("payment" , function($query) use ($key){
+                    $query->where("payment_ref_no", "like", "%$key%");
+                });
+            }
+            
+            $orders = $builder->orderby("id" , "desc")->paginate(ApiConstants::PAGINATION_SIZE_API);
             $orderTrans = new OrderTransformer;
             return validResponse("Vehicles search data retrieved", collect_pagination($orderTrans, $orders));
+        } catch (ValidationException $e) {
+            $message = "The given data was invalid.";
+            return inputErrorResponse($message, ApiConstants::VALIDATION_ERR_CODE, $request, $e);
         } catch (\Exception $e) {
             $message = 'Something went wrong while processing your request.';
             return problemResponse($message, ApiConstants::SERVER_ERR_CODE, $request, $e);

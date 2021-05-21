@@ -18,7 +18,7 @@ function problemResponse(string $message = null, int $status_code , Request $req
 		'code' => $code,
 		'success' => false,
 		'error_debug' => $traceMsg,
-		'error_trace' => $trace->getTrace(),
+		// 'error_trace' => $trace->getTrace(),
 	];
 
 	!empty($trace) ? logger($trace->getMessage(), $trace->getTrace()) : null;

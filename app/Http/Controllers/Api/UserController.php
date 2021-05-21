@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Helpers\ApiConstants;
 use App\Http\Controllers\Controller;
+use App\Transformers\UserTransformer;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -117,7 +118,9 @@ class UserController extends Controller
                 'phone2' => $request['phone2'],
             ]);
 
-            return validResponse("Profile updated successfully");
+            $userTrans = new UserTransformer;
+
+            return validResponse("Profile updated successfully" , $userTrans->transform($user));
         } catch (ValidationException $e) {
             $message = "The given data was invalid.";
             return inputErrorResponse($message, ApiConstants::VALIDATION_ERR_CODE, $request, $e);
