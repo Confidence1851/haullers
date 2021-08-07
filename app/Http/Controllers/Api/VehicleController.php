@@ -72,8 +72,19 @@ class VehicleController extends ApiController
             foreach ($vehicleCats as $cat) {
                 $categories->push($vehicleCategoryTrans->index($cat));
             }
+            $banners = [
+                asset('public/web/data4/images/backbg1.jpg'),
+                asset('public/web/data4/images/slider1.jpg'),
+                asset('public/web/data4/images/slider6.jpg'),
+                asset('public/web/data4/images/slider8.jpg'),
+            ];
 
-            return validResponse("Homepage data retrieved", $categories);
+            $data = [
+                "banners" => $banners,
+                "categories" => $categories
+            ];
+
+            return validResponse("Homepage data retrieved", $data);
         } catch (\Exception $e) {
             $message = 'Something went wrong while processing your request.';
             return problemResponse($message, ApiConstants::SERVER_ERR_CODE, $request, $e);
@@ -238,6 +249,4 @@ class VehicleController extends ApiController
             return problemResponse($message, ApiConstants::SERVER_ERR_CODE, $request, $e);
         }
     }
-
-    
 }
