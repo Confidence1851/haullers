@@ -33,7 +33,7 @@
         </div>
     </div>
     <div class="footer__copyright">
-        <p>Copyright <i class="fal fa-copyright"></i> 2019 - 2020 All rights reserved</p>
+        <p>Copyright <i class="fal fa-copyright"></i> 2019 - 2022 All rights reserved</p>
     </div>
 </footer>   
          <!-- Script for boostrap -->
