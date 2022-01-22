@@ -230,7 +230,6 @@
                     </div>
                 <div class="recent-activity">
                     
-                    
                     <div class="timeline-task">
                         <div class="icon bg2">
                             <i class="fa fa-envelope"></i>
