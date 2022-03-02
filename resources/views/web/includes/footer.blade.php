@@ -23,7 +23,7 @@
                 <div class="footer__content">
                     <h1 class="footer__headings">Get in touch</h1>
                     <p class="footer__paragraph">Check in with us at:</p>
-                    <p class="footer__paragraph--active"><span><i class="fal fa-map-marker"></i> 7/9 Muritala Eletu Way, Osapa London, Lekki II, Lagos, Nigeria.
+                    <p class="footer__paragraph--active"><span><i class="fal fa-map-marker"></i> 48, Herbert Orji Avenue, Osapa London, Lekki.
                             </span></p>
                     <p class="footer__paragraph--active"><span> <a href="tel:+234-8123282500" class="text-grey"> <i class="fal fa-mobile"></i> +234-8123282500  </a> </span>
                     </p>
